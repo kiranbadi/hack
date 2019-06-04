@@ -21,8 +21,7 @@ import io.swagger.annotations.ApiModelProperty;
  *
  */
 
-@Entity
-@Table(name = "tbschoolinformation")
+
 public class SchoolInformationBean {
 	
 	@Id
