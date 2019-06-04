@@ -13,7 +13,7 @@ import java.util.List;
  */
 public interface MemberDetailsRepository extends CrudRepository<MemberDetails,Long>  {
 
-    @Query("SELECT m from MemberDetails where m.memberId =  ?1")
+    @Query("SELECT m from MemberDetails m where m.memberId =  ?1")
     List<MemberDetails> findMemberDetailsByMember(Long memberId);
 
 
