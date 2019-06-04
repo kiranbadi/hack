@@ -1,6 +1,7 @@
 package com.db.hack.wise.model;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 
 /**
@@ -34,9 +35,9 @@ public class Member {
     @Column(name = "membertype")
     private String memberType;
 
-    @Temporal(TemporalType.DATE)
+
     @Column(name = "DOB")
-    private Date dob;
+    private LocalDate dob;
 
     @Column(name = "classcode")
     private String classCode;
@@ -107,11 +108,11 @@ public class Member {
         this.memberType = memberType;
     }
 
-    public Date getDob() {
+    public LocalDate getDob() {
         return dob;
     }
 
-    public void setDob(Date dob) {
+    public void setDob(LocalDate dob) {
         this.dob = dob;
     }
 
