@@ -1,4 +1,4 @@
-package com.vasanti.finlite;
+package com.db.hack.wise;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
