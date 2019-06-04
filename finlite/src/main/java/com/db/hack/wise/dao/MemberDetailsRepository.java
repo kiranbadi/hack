@@ -11,9 +11,10 @@ import java.util.List;
 /**
  * Created by jones_vinu on 6/4/2019.
  */
+public interface MemberDetailsRepository extends CrudRepository<MemberDetails,Long>  {
 
-public interface MemberRepository extends CrudRepository<Member,Long> {
+    @Query("SELECT m from MemberDetails where m.memberId =  ?1")
+    List<MemberDetails> findMemberDetailsByMember(Long memberId);
 
 
-	
 }
