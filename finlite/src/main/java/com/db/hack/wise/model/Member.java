@@ -35,9 +35,9 @@ public class Member {
     @Column(name = "membertype")
     private String memberType;
 
-
+    @Temporal(TemporalType.DATE)
     @Column(name = "DOB")
-    private LocalDate dob;
+    private Date dob;
 
     @Column(name = "classcode")
     private String classCode;
@@ -108,11 +108,11 @@ public class Member {
         this.memberType = memberType;
     }
 
-    public LocalDate getDob() {
+    public Date getDob() {
         return dob;
     }
 
-    public void setDob(LocalDate dob) {
+    public void setDob(Date dob) {
         this.dob = dob;
     }
 
