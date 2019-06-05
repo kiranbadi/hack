@@ -1,12 +1,12 @@
 package com.db.hack.wise.dao;
 
-import com.db.hack.wise.model.StudentQuestions;
-
 import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
+
+import com.db.hack.wise.model.StudentQuestions;
 
 /**
  * Created by Balamurugan on 6/4/2019.

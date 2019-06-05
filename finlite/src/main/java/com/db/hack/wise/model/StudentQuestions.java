@@ -15,6 +15,17 @@ import javax.persistence.Table;
 @Table(name = "studentquestions")
 public class StudentQuestions {
 
+	public StudentQuestions() {
+		
+	}
+	public StudentQuestions(StudentQuestions data) {
+		this.studentQuestionID = data.studentQuestionID;
+		this.className = data.getClassName();
+		this.correctAns = data.getCorrectAns();
+		this.difficulty = data.getDifficulty();
+		this.item = data.getItem();
+		this.topicCode = data.getTopicCode();
+	}
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "studentquestion_id")

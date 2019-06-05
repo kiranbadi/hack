@@ -2,6 +2,7 @@ package com.db.hack.wise.service;
 
 import java.util.List;
 
+import com.db.hack.wise.model.Questions;
 import com.db.hack.wise.model.StudentQuestions;
 
 /**
@@ -16,6 +17,9 @@ public interface StudentQuestionsService {
 	public StudentQuestions save(StudentQuestions studentQuestion);
 	public List<StudentQuestions> getForCourseId(String courseId);
 	List<String> getDistinctListOfCourse();
+
 	List<String> getClassForCourse(String courseName);
 
+
+	List<Questions> getQuestionsForCourse(String courseName);
 }
