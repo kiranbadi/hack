@@ -1,16 +1,16 @@
 package com.db.hack.wise.service.impl;
 
-import com.db.hack.wise.dao.MemberRepository;
-import com.db.hack.wise.dao.MemberRepository;
-import com.db.hack.wise.model.Member;
-import com.db.hack.wise.service.MemberService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import com.db.hack.wise.dao.MemberRepository;
+import com.db.hack.wise.model.Member;
+import com.db.hack.wise.service.MemberService;
 
 /**
  * Created by jones_vinu on 6/5/2019.
@@ -33,12 +33,13 @@ public class MemberServiceImpl implements MemberService{
 
     @Override
     public List<Member> getAll() {
-        List<Member> MemberList = new ArrayList<Member>();
+        List<Member> memberList = new ArrayList<Member>();
         Iterable<Member> result = memberRepository.findAll();
         if (result != null) {
-            result.forEach(Member -> MemberList.add(Member));
+            result.forEach(Member -> memberList.add(Member));
+            return memberList;
         }
-        return Arrays.asList(new Member());
+        return Arrays.asList();
     }
 
     @Override

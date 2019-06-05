@@ -27,7 +27,7 @@ public class StudentQuestionsServiceImpl implements StudentQuestionsService {
 			return result.get();
 		}
 
-		return new StudentQuestions();
+		return null;
 	}
 
 	@Override
@@ -38,7 +38,7 @@ public class StudentQuestionsServiceImpl implements StudentQuestionsService {
 			result.forEach(studentQuestions -> studentQuestionsList.add(studentQuestions));
 			return studentQuestionsList;
 		}
-		return Arrays.asList(new StudentQuestions());
+		return Arrays.asList();
 	}
 
 	@Override

@@ -1,19 +1,18 @@
 package com.db.hack.wise.dao;
 
-import com.db.hack.wise.model.Member;
-import com.db.hack.wise.model.MemberDetails;
+import java.util.List;
+
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.web.bind.annotation.PathVariable;
 
-import java.util.List;
+import com.db.hack.wise.model.MemberDetails;
 
 /**
  * Created by jones_vinu on 6/4/2019.
  */
 public interface MemberDetailsRepository extends CrudRepository<MemberDetails,Long>  {
 
-    @Query("SELECT m from MemberDetails m where m.memberId =  ?1")
+    @Query("SELECT m from MemberDetails m where m.memberId =  :memberId")
     List<MemberDetails> findMemberDetailsByMember(Long memberId);
 
 
