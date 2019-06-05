@@ -11,9 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.db.hack.wise.model.School;
 import com.db.hack.wise.model.StudentQuestions;
-import com.db.hack.wise.service.SchoolService;
 import com.db.hack.wise.service.StudentQuestionsService;
 
 /**
@@ -27,27 +25,27 @@ public class StudentQuestionsController {
 	private StudentQuestionsService studentQuestionsService;
 
 	@RequestMapping("/studentQuestions/{id}")
-	public StudentQuestions getSchool(@PathVariable("id") int id) {
+	public StudentQuestions getStudentQuestions(@PathVariable("id") int id) {
 		return studentQuestionsService.get(id);
 	}
 
 	@RequestMapping("/studentQuestions/all")
-	public List<StudentQuestions> getAllSchool(@PathVariable("id") int id) {
+	public List<StudentQuestions> getAllStudentQuestions() {
 		return studentQuestionsService.getAll();
 	}
 	
 	@PostMapping("/studentQuestions")
-	public List<StudentQuestions> saveSchool(@RequestBody  School school) {
-		return studentQuestionsService.getAll();
+	public StudentQuestions saveStudentQuestions(@RequestBody  StudentQuestions studentQuestions) {
+		return studentQuestionsService.save(studentQuestions);
 	}
 	
 	@DeleteMapping("/studentQuestions/{id}")
-	public void deleteSchool(@PathVariable("id") int id) {
+	public void deleteStudentQuestions(@PathVariable("id") int id) {
 		studentQuestionsService.delete(id);
 	}
 	
 	@PutMapping("/studentQuestions/{id}")
-	public StudentQuestions updateSchool(@PathVariable("id") int id,@RequestBody  StudentQuestions studentQuestions) {
+	public StudentQuestions updateStudentQuestions(@PathVariable("id") int id,@RequestBody  StudentQuestions studentQuestions) {
 		 return studentQuestionsService.update(studentQuestions);
 	}
 

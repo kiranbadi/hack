@@ -29,14 +29,14 @@ public class SchoolController {
 		return schoolService.get(id);
 	}
 
-	@RequestMapping("/scholo/all")
-	public List<School> getAllSchool(@PathVariable("id") int id) {
+	@RequestMapping("/school/all")
+	public List<School> getAllSchool() {
 		return schoolService.getAll();
 	}
 	
 	@PostMapping("/school")
-	public List<School> saveSchool(@RequestBody  School school) {
-		return schoolService.getAll();
+	public School saveSchool(@RequestBody  School school) {
+		return schoolService.save(school);
 	}
 	
 	@DeleteMapping("/school/{id}")
