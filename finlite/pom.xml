@@ -9,11 +9,11 @@
 		<version>2.1.5.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>db.hack.wise</groupId>
-	<artifactId>wise-literacy</artifactId>
+	<groupId>com.db.hack.wise</groupId>
+	<artifactId>finlite</artifactId>
 	<version>2.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
-	<name>wise-literacy</name>
+	<name>finlite</name>
 	<description>Financial Literacy Application</description>
 
 	<properties>
