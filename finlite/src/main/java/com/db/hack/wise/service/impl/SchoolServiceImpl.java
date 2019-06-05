@@ -27,7 +27,7 @@ public class SchoolServiceImpl implements SchoolService {
 			return result.get();
 		}
 
-		return new School();
+		return null;
 	}
 
 	@Override
@@ -36,8 +36,9 @@ public class SchoolServiceImpl implements SchoolService {
 		Iterable<School> result = schoolRepository.findAll();
 		if (result != null) {
 			result.forEach(school -> schoolList.add(school));
+			return schoolList;
 		}
-		return Arrays.asList(new School());
+		return Arrays.asList();
 	}
 
 	@Override

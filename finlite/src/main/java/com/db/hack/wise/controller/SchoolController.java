@@ -24,27 +24,27 @@ public class SchoolController {
 	@Autowired
 	private SchoolService schoolService;
 
-	@RequestMapping("/schoo/{id}")
+	@RequestMapping("/school/{id}")
 	public School getSchool(@PathVariable("id") int id) {
 		return schoolService.get(id);
 	}
 
-	@RequestMapping("/schoo/all")
-	public List<School> getAllSchool(@PathVariable("id") int id) {
+	@RequestMapping("/school/all")
+	public List<School> getAllSchool() {
 		return schoolService.getAll();
 	}
 	
-	@PostMapping("/schoo")
-	public List<School> saveSchool(@RequestBody  School school) {
-		return schoolService.getAll();
+	@PostMapping("/school")
+	public School saveSchool(@RequestBody  School school) {
+		return schoolService.save(school);
 	}
 	
-	@DeleteMapping("/schoo/{id}")
+	@DeleteMapping("/school/{id}")
 	public void deleteSchool(@PathVariable("id") int id) {
 		 schoolService.delete(id);
 	}
 	
-	@PutMapping("/schoo/{id}")
+	@PutMapping("/school/{id}")
 	public School updateSchool(@PathVariable("id") int id,@RequestBody  School school) {
 		 return schoolService.update(id,school);
 	}

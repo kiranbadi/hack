@@ -10,13 +10,13 @@ import org.springframework.stereotype.Component;
 
 import com.db.hack.wise.dao.StudentQuestionsRepository;
 import com.db.hack.wise.model.StudentQuestions;
-import com.db.hack.wise.service.StudentQuestionService;
+import com.db.hack.wise.service.StudentQuestionsService;
 
 /**
  * Created by Balamurugan on 6/4/2019.
  */
 @Component
-public class StudentQuestionsServiceImpl implements StudentQuestionService {
+public class StudentQuestionsServiceImpl implements StudentQuestionsService {
 	@Autowired
 	private StudentQuestionsRepository studentQuestionsRepository;
 
@@ -32,10 +32,11 @@ public class StudentQuestionsServiceImpl implements StudentQuestionService {
 
 	@Override
 	public List<StudentQuestions> getAll() {
-		List<StudentQuestions> schoolList = new ArrayList<StudentQuestions>();
+		List<StudentQuestions> studentQuestionsList = new ArrayList<StudentQuestions>();
 		Iterable<StudentQuestions> result = studentQuestionsRepository.findAll();
 		if (result != null) {
-			result.forEach(studentQuestions -> schoolList.add(studentQuestions));
+			result.forEach(studentQuestions -> studentQuestionsList.add(studentQuestions));
+			return studentQuestionsList;
 		}
 		return Arrays.asList(new StudentQuestions());
 	}

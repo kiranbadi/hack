@@ -8,7 +8,7 @@ import com.db.hack.wise.model.StudentQuestions;
  * Created by Balamurugan on 6/4/2019.
  */
 
-public interface StudentQuestionService {
+public interface StudentQuestionsService {
 	public StudentQuestions get(int id);
 	public List<StudentQuestions> getAll();
 	public StudentQuestions update(StudentQuestions studentQuestion);
