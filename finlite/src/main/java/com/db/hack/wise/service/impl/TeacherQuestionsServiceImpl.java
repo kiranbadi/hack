@@ -27,7 +27,7 @@ public class TeacherQuestionsServiceImpl implements TeacherQuestionsService {
 			return result.get();
 		}
 
-		return new TeacherQuestions();
+		return null;
 	}
 
 	@Override
@@ -38,7 +38,7 @@ public class TeacherQuestionsServiceImpl implements TeacherQuestionsService {
 			result.forEach(teacherQuestions -> teacherQuestionsList.add(teacherQuestions));
 			return teacherQuestionsList;
 		}
-		return Arrays.asList(new TeacherQuestions());
+		return Arrays.asList();
 	}
 
 	@Override

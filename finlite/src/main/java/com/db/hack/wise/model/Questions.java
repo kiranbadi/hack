@@ -1,98 +1,50 @@
 package com.db.hack.wise.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import java.util.List;
 
 /**
  * Created by Balamurugan on 6/4/2019.
  */
-@Entity
 
-@Table(name = "studentquestions")
 public class Questions {
 
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Id
-    @Column(name = "studentquestion_id")
-    private Long studentQuestionID;
+    private String question;
 
-    @Column(name = "topiccode")
-    private String topicCode;
+    private List<String> options;
 
-    @Column(name = "difficulty")
-    private String difficulty;
+    private String rationale;
 
-    @Column(name = "correctans")
-    private String correctAns;
-
-    @Column(name = "item")
-    private String item;
-
-    @Column(name = "classname")
-    private String className;
-
-	public Long getStudentQuestionID() {
-		return studentQuestionID;
+	public String getQuestion() {
+		return question;
 	}
 
-	public void setStudentQuestionID(Long studentQuestionID) {
-		this.studentQuestionID = studentQuestionID;
+	public void setQuestion(String question) {
+		this.question = question;
 	}
 
-	public String getTopicCode() {
-		return topicCode;
+	public List<String> getOptions() {
+		return options;
 	}
 
-	public void setTopicCode(String topicCode) {
-		this.topicCode = topicCode;
+	public void setOptions(List<String> options) {
+		this.options = options;
 	}
 
-	public String getDifficulty() {
-		return difficulty;
+	public String getRationale() {
+		return rationale;
 	}
 
-	public void setDifficulty(String difficulty) {
-		this.difficulty = difficulty;
-	}
-
-	public String getCorrectAns() {
-		return correctAns;
-	}
-
-	public void setCorrectAns(String correctAns) {
-		this.correctAns = correctAns;
-	}
-
-	public String getItem() {
-		return item;
-	}
-
-	public void setItem(String item) {
-		this.item = item;
-	}
-
-	public String getClassName() {
-		return className;
-	}
-
-	public void setClassName(String className) {
-		this.className = className;
+	public void setRationale(String rationale) {
+		this.rationale = rationale;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((className == null) ? 0 : className.hashCode());
-		result = prime * result + ((correctAns == null) ? 0 : correctAns.hashCode());
-		result = prime * result + ((difficulty == null) ? 0 : difficulty.hashCode());
-		result = prime * result + ((item == null) ? 0 : item.hashCode());
-		result = prime * result + ((studentQuestionID == null) ? 0 : studentQuestionID.hashCode());
-		result = prime * result + ((topicCode == null) ? 0 : topicCode.hashCode());
+		result = prime * result + ((options == null) ? 0 : options.hashCode());
+		result = prime * result + ((question == null) ? 0 : question.hashCode());
+		result = prime * result + ((rationale == null) ? 0 : rationale.hashCode());
 		return result;
 	}
 
@@ -105,43 +57,28 @@ public class Questions {
 		if (getClass() != obj.getClass())
 			return false;
 		Questions other = (Questions) obj;
-		if (className == null) {
-			if (other.className != null)
+		if (options == null) {
+			if (other.options != null)
 				return false;
-		} else if (!className.equals(other.className))
+		} else if (!options.equals(other.options))
 			return false;
-		if (correctAns == null) {
-			if (other.correctAns != null)
+		if (question == null) {
+			if (other.question != null)
 				return false;
-		} else if (!correctAns.equals(other.correctAns))
+		} else if (!question.equals(other.question))
 			return false;
-		if (difficulty == null) {
-			if (other.difficulty != null)
+		if (rationale == null) {
+			if (other.rationale != null)
 				return false;
-		} else if (!difficulty.equals(other.difficulty))
-			return false;
-		if (item == null) {
-			if (other.item != null)
-				return false;
-		} else if (!item.equals(other.item))
-			return false;
-		if (studentQuestionID == null) {
-			if (other.studentQuestionID != null)
-				return false;
-		} else if (!studentQuestionID.equals(other.studentQuestionID))
-			return false;
-		if (topicCode == null) {
-			if (other.topicCode != null)
-				return false;
-		} else if (!topicCode.equals(other.topicCode))
+		} else if (!rationale.equals(other.rationale))
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "StudentQuestions [studentQuestionID=" + studentQuestionID + ", topicCode=" + topicCode + ", difficulty="
-				+ difficulty + ", correctAns=" + correctAns + ", item=" + item + ", className=" + className + "]";
+		return "Questions [question=" + question + ", options=" + options + ", rationale=" + rationale + "]";
 	}
-
+    
+    
 }
