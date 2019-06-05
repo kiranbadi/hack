@@ -6,7 +6,18 @@ import java.util.List;
  * Created by Balamurugan on 6/4/2019.
  */
 
-public class Questions {
+public class Questions extends StudentQuestions{
+	
+	public Questions() {
+		
+	}
+	
+	public Questions(StudentQuestions data, String question2, List<String> options2, String rationable) {
+		super(data);
+		this.question = question2;
+		this.options = options2;
+		this.rationale = rationable;
+	}
 
     private String question;
 

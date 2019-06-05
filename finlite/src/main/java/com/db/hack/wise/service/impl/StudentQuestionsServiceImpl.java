@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.db.hack.wise.dao.StudentQuestionsRepository;
+import com.db.hack.wise.model.Questions;
 import com.db.hack.wise.model.StudentQuestions;
 import com.db.hack.wise.service.StudentQuestionsService;
 
@@ -66,5 +67,26 @@ public class StudentQuestionsServiceImpl implements StudentQuestionsService {
 	@Override
 	public List<String> getDistinctListOfCourse() {
 		return studentQuestionsRepository.getDistinctListOfCourse();
+	}
+	
+	@Override
+	public List<Questions> getQuestionsForCourse(String courseName) {
+		List<Questions> questionList = new ArrayList<Questions>();
+		
+		 List<StudentQuestions> datas = getForCourseId(courseName);
+		 datas.forEach(data -> {
+			 String[] questionAndoption = data.getItem().split("\r");
+			 String question = questionAndoption[0];
+			 List<String> options =  new ArrayList<String>();
+			 options.add(questionAndoption[1]);
+			 options.add(questionAndoption[2]);
+			 options.add(questionAndoption[3]);
+			 options.add(questionAndoption[4]);
+			 String rationable = questionAndoption[5];
+			 Questions quesiton = new Questions(data,question,options,rationable); 
+			 questionList.add(quesiton);
+			 });
+		//return studentQuestionsRepository.getQuestionsForCourse(courseName);
+		 return questionList;
 	}
 }

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.db.hack.wise.model.Questions;
 import com.db.hack.wise.model.StudentQuestions;
 import com.db.hack.wise.service.StudentQuestionsService;
 
@@ -57,6 +58,11 @@ public class StudentQuestionsController {
 	@GetMapping("/studentQuestions/classname/name")
 	public List<String> getStudentQuestionsForCourse() {
 		return studentQuestionsService.getDistinctListOfCourse();
+	}
+	
+	@GetMapping("/studentQuestions/classname/questions/{classname}")
+	public List<Questions> getQuestionsForCourse(@PathVariable("classname") String className) {
+		return studentQuestionsService.getQuestionsForCourse(className);
 	}
 
 }
