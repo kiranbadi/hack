@@ -17,7 +17,10 @@ public interface TeacherQuestionsRepository extends CrudRepository<TeacherQuesti
 	@Query("select teacherQuestions from TeacherQuestions teacherQuestions where teacherQuestions.className = :courseId")
 	public List<TeacherQuestions> getForCourseId(@Param("courseId")String courseId);
 	
-	@Query("select distinct teacherQuestions.className from TeacherQuestions teacherQuestions")
+	@Query("select distinct teacherQuestions.courseName from TeacherQuestions teacherQuestions")
 	public List<String> getDistinctListOfCourse();
+
+	@Query("select distinct teacherQuestions.className from TeacherQuestions teacherQuestions where teacherQuestions.courseName = :courseName")
+	public List<String> getClassForCourse(@Param("courseName") String courseName);
 	
 }

@@ -35,7 +35,7 @@ public class StudentQuestions {
     @Column(name = "classname")
     private String className;
 
-	@Column(name = "courseName")
+	@Column(name = "coursename")
 	private String courseName;
 
 	public Long getStudentQuestionID() {

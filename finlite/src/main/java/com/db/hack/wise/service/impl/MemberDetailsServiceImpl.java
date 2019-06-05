@@ -33,12 +33,12 @@ public class MemberDetailsServiceImpl implements MemberDetailsService {
 
     @Override
     public List<MemberDetails> getAll() {
-        List<MemberDetails> MemberDetailsList = new ArrayList<MemberDetails>();
+        List<MemberDetails> memberList = new ArrayList<MemberDetails>();
         Iterable<MemberDetails> result = MemberDetailsRepository.findAll();
         if (result != null) {
-            result.forEach(MemberDetails -> MemberDetailsList.add(MemberDetails));
+            result.forEach(MemberDetails -> memberList.add(MemberDetails));
         }
-        return MemberDetailsList;
+        return memberList;
     }
 
     @Override

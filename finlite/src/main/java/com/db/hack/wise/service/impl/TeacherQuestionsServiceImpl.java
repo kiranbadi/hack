@@ -67,4 +67,9 @@ public class TeacherQuestionsServiceImpl implements TeacherQuestionsService {
 	public List<String> getDistinctListOfCourse() {
 		return teacherQuestionsRepository.getDistinctListOfCourse();
 	}
+
+	@Override
+	public List<String> getClassForCourse(String courseName){
+		return teacherQuestionsRepository.getClassForCourse(courseName);
+	}
 }

@@ -30,7 +30,7 @@ public class TeacherQuestions {
     @Column(name="Classname")
     private String className;
 
-    @Column(name="CourseName")
+    @Column(name="coursename")
     private String courseName;
 
     public Long getTeacherQuestionID() {

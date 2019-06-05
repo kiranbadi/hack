@@ -16,4 +16,5 @@ public interface TeacherQuestionsService {
 	public TeacherQuestions save(TeacherQuestions teacherQuestion);
 	public List<TeacherQuestions> getForCourseId(String courseId);
 	List<String> getDistinctListOfCourse();
+	List<String> getClassForCourse(String courseName);
 }

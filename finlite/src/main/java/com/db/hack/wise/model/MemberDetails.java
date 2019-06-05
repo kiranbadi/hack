@@ -7,7 +7,7 @@ import java.util.Date;
  * Created by jones_vinu on 6/4/2019.
  */
 @Entity
-@Table(name = "MemberDetails")
+@Table(name = "Memberdetails")
 public class MemberDetails {
 
 
@@ -16,19 +16,19 @@ public class MemberDetails {
 
     @Id()
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "MemberDetail_ID")
+    @Column(name = "Memberdetail_ID")
     private Long memberDetailID;
 
-    @Column(name = "ClassName")
+    @Column(name = "Classname")
     private String className;
 
     @Column(name = "Score")
     private String score;
 
-    @Column(name = "CertifiedDate")
+    @Column(name = "Certifieddate")
     private Date certifiedDate;
 
-    @Column(name = "ClassStatus")
+    @Column(name = "Classstatus")
     private Date classStatus;
 
     public Long getMemberId() {
@@ -77,5 +77,17 @@ public class MemberDetails {
 
     public void setClassStatus(Date classStatus) {
         this.classStatus = classStatus;
+    }
+
+    @Override
+    public String toString() {
+        return "MemberDetails{" +
+                "memberId=" + memberId +
+                ", memberDetailID=" + memberDetailID +
+                ", className='" + className + '\'' +
+                ", score='" + score + '\'' +
+                ", certifiedDate=" + certifiedDate +
+                ", classStatus=" + classStatus +
+                '}';
     }
 }

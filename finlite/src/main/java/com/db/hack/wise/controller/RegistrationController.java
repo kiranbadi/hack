@@ -18,7 +18,7 @@ import java.util.List;
  * Created by jones_vinu on 6/4/2019.
  */
 
-
+@CrossOrigin
 @RestController
 public class RegistrationController {
 
@@ -29,13 +29,14 @@ public class RegistrationController {
     private MemberDetailsService memberDetailsService;
 
     @PostMapping("/members/create")
-    Member registerMember(Member member){
+    public Member registerMember(Member member){
+        member.setCreatedDate(new Date());
         Member savedMember = memberService.save(member);
         return savedMember;
     }
 
     @GetMapping("/members/all")
-    Iterable <Member> getUser(){
+    public Iterable <Member> getUsers(){
        return memberService.getAll();
     }
 

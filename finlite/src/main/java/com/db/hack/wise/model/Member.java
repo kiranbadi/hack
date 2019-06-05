@@ -58,6 +58,9 @@ public class Member {
     @Column(name = "StudentID")
     private String studendID;
 
+    @Column(name = "Course")
+    private String course;
+
     public Long getMemberId() {
         return memberId;
     }
@@ -154,5 +157,38 @@ public class Member {
         this.studendID = studendID;
     }
 
+    public String getUsername() {
+        return username;
+    }
 
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getCourse() {
+        return course;
+    }
+
+    public void setCourse(String course) {
+        this.course = course;
+    }
+
+    @Override
+    public String toString() {
+        return "Member{" +
+                "memberId=" + memberId +
+                ", firstName='" + firstName + '\'' +
+                ", middleName='" + middleName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", memberType='" + memberType + '\'' +
+                ", dob=" + dob +
+                ", classCode='" + classCode + '\'' +
+                ", createdDate=" + createdDate +
+                ", gender='" + gender + '\'' +
+                ", studendID='" + studendID + '\'' +
+                ", course='" + course + '\'' +
+                '}';
+    }
 }
