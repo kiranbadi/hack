@@ -41,7 +41,8 @@ public class SchoolServiceImpl implements SchoolService {
 	}
 
 	@Override
-	public School update(School school) {
+	public School update(int id, School school) {
+		school.setSchoolId((long) id);
 		School response = schoolRepository.save(school);
 		return response;
 	}

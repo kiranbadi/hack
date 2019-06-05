@@ -11,7 +11,7 @@ import com.db.hack.wise.model.School;
 public interface SchoolService {
 	public School get(int id);
 	public List<School> getAll();
-	public School update(School school);
+	public School update(int id, School school);
 	public void delete(int id);
 	public School save(School school);
 }
