@@ -10,11 +10,11 @@ import java.util.Date;
 @Table(name = "MemberDetails")
 public class MemberDetails {
 
-    @Id()
 
     @Column(name = "Member_ID")
     private Long memberId;
 
+    @Id()
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "MemberDetail_ID")
     private Long memberDetailID;
