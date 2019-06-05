@@ -19,11 +19,11 @@ public class MemberDetailsController {
     private MemberDetailsRepository memberDetailsRepository;
 
     @PostMapping("/members/details/create")
-    void registerMember(MemberDetails details){
+    void createMemberDetails(MemberDetails details){
         memberDetailsRepository.save(details);
     }
 
-    @GetMapping("members/{id}/details")
+    @GetMapping("members/details/{id}/details")
     Iterable<MemberDetails> memberDetails(@PathVariable Long id){
         return memberDetailsRepository.findMemberDetailsByMember(id);
     }

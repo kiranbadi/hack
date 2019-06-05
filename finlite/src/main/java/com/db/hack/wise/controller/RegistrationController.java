@@ -2,10 +2,13 @@ package com.db.hack.wise.controller;
 
 import com.db.hack.wise.dao.MemberRepository;
 import com.db.hack.wise.model.Member;
+import com.db.hack.wise.model.MemberDetails;
+import com.db.hack.wise.model.School;
+import com.db.hack.wise.service.MemberDetailsService;
+import com.db.hack.wise.service.MemberService;
+import com.db.hack.wise.service.SchoolService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.Iterator;
@@ -20,19 +23,40 @@ import java.util.List;
 public class RegistrationController {
 
     @Autowired
-    private MemberRepository memberRepository;
+    private MemberService memberService;
+
+    @Autowired
+    private MemberDetailsService memberDetailsService;
 
     @PostMapping("/members/create")
-    void registerMember(Member member){
-        member.setCreatedDate(new Date());
-        memberRepository.save(member);
+    Member registerMember(Member member){
+        Member savedMember = memberService.save(member);
+        MemberDetails memberDetails = new MemberDetails();
+        memberDetails.setClassName(member.getClassCode());
+        memberDetails.setMemberId(savedMember.getMemberId());
+        memberDetailsService.save(memberDetails);
+        return savedMember;
     }
 
     @GetMapping("/members/all")
     Iterable <Member> getUser(){
-       return memberRepository.findAll();
+       return memberService.getAll();
+    }
+
+    @RequestMapping("/members/{id}")
+    public Member getMember(@PathVariable("id") int id) {
+        return memberService.get(id);
     }
 
 
+    @DeleteMapping("/members/{id}")
+    public void deleteMember(@PathVariable("id") int id) {
+        memberService.delete(id);
+    }
+
+    @PutMapping("/members/{id}")
+    public Member updateMember(@PathVariable("id") int id,@RequestBody  Member member) {
+        return memberService.update(id,member);
+    }
 
 }

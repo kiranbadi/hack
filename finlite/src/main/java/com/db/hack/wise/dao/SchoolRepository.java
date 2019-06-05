@@ -9,5 +9,7 @@ import com.db.hack.wise.model.School;
  */
 
 public interface SchoolRepository extends CrudRepository<School,Long> {
+
+
 	
 }

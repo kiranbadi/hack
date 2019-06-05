@@ -15,7 +15,6 @@ import javax.persistence.TemporalType;
  * Created by jones_vinu on 6/4/2019.
  */
 @Entity
-
 @Table(name = "Member")
 public class Member {
 
