@@ -45,7 +45,7 @@ public class StudentQuestionsController {
 	}
 	
 	@PutMapping("/studentQuestions/{id}")
-	public StudentQuestions updateStudentQuestions(@PathVariable("id") int id,@RequestBody  StudentQuestions studentQuestions) {
+	public StudentQuestions updateStudentQuestions(@PathVariable("id") int id, @RequestBody  StudentQuestions studentQuestions) {
 		 return studentQuestionsService.update(studentQuestions);
 	}
 

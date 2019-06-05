@@ -32,10 +32,11 @@ public class StudentQuestionsServiceImpl implements StudentQuestionsService {
 
 	@Override
 	public List<StudentQuestions> getAll() {
-		List<StudentQuestions> schoolList = new ArrayList<StudentQuestions>();
+		List<StudentQuestions> studentQuestionsList = new ArrayList<StudentQuestions>();
 		Iterable<StudentQuestions> result = studentQuestionsRepository.findAll();
 		if (result != null) {
-			result.forEach(studentQuestions -> schoolList.add(studentQuestions));
+			result.forEach(studentQuestions -> studentQuestionsList.add(studentQuestions));
+			return studentQuestionsList;
 		}
 		return Arrays.asList(new StudentQuestions());
 	}
