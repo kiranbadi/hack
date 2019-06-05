@@ -57,4 +57,9 @@ public class StudentQuestionsServiceImpl implements StudentQuestionsService {
 		StudentQuestions response = studentQuestionsRepository.save(studentQuestions);
 		return response;
 	}
+
+	@Override
+	public List<StudentQuestions> getForCourseId(String courseId) {
+		return studentQuestionsRepository.getForCourseId(courseId);
+	}
 }
