@@ -14,4 +14,6 @@ public interface StudentQuestionsService {
 	public StudentQuestions update(StudentQuestions studentQuestion);
 	public void delete(int id);
 	public StudentQuestions save(StudentQuestions studentQuestion);
+	public List<StudentQuestions> getForCourseId(String courseId);
+	List<String> getDistinctListOfCourse();
 }

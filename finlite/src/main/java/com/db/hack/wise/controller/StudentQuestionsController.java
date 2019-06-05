@@ -48,5 +48,15 @@ public class StudentQuestionsController {
 	public StudentQuestions updateStudentQuestions(@PathVariable("id") int id, @RequestBody  StudentQuestions studentQuestions) {
 		 return studentQuestionsService.update(studentQuestions);
 	}
+	
+	@RequestMapping("/studentQuestions/classname/{classname}")
+	public List<StudentQuestions> getStudentQuestionsForCourse(@PathVariable("classname") String className) {
+		return studentQuestionsService.getForCourseId(className);
+	}
+	
+	@RequestMapping("/studentQuestions/classname/name")
+	public List<String> getStudentQuestionsForCourse() {
+		return studentQuestionsService.getDistinctListOfCourse();
+	}
 
 }

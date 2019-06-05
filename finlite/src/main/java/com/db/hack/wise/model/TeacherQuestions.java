@@ -6,28 +6,28 @@ import javax.persistence.*;
  * Created by jones_vinu on 6/4/2019.
  */
 @Entity
-@Table(name = "TeacherQuestions")
+@Table(name = "Teacherquestions")
 public class TeacherQuestions {
 
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "TeacherQuestion_ID")
+    @Column(name = "Teacherquestion_ID")
     private Long teacherQuestionID;
 
-    @Column(name = "TopicCode")
+    @Column(name = "Topiccode")
     private String topicCode;
 
     @Column(name = "Difficulty")
     private String difficulty;
 
-    @Column(name="CorrectAns")
+    @Column(name="Correctans")
     private String correctAns;
 
     @Column(name="Item")
     private String item;
 
-    @Column(name="ClassName")
+    @Column(name="Classname")
     private String className;
 
     public Long getTeacherQuestionID() {
