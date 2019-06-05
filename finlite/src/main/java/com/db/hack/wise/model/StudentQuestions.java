@@ -12,12 +12,12 @@ import javax.persistence.Table;
  */
 @Entity
 
-@Table(name = "School")
+@Table(name = "studentquestions")
 public class StudentQuestions {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @Column(name = "StudentQuestion_ID")
+    @Column(name = "studentquestion_id")
     private Long studentQuestionID;
 
     @Column(name = "topiccode")
@@ -26,7 +26,7 @@ public class StudentQuestions {
     @Column(name = "difficulty")
     private String difficulty;
 
-    @Column(name = "correctAns")
+    @Column(name = "correctans")
     private String correctAns;
 
     @Column(name = "item")
