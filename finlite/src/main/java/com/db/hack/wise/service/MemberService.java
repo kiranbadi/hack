@@ -1,9 +1,8 @@
 package com.db.hack.wise.service;
 
-import com.db.hack.wise.model.Member;
-import com.db.hack.wise.model.School;
-
 import java.util.List;
+
+import com.db.hack.wise.model.Member;
 
 /**
  * Created by jones_vinu on 6/5/2019.

@@ -4,11 +4,11 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.db.hack.wise.model.StudentQuestions;
@@ -24,12 +24,12 @@ public class StudentQuestionsController {
 	@Autowired
 	private StudentQuestionsService studentQuestionsService;
 
-	@RequestMapping("/studentQuestions/{id}")
+	@GetMapping("/studentQuestions/{id}")
 	public StudentQuestions getStudentQuestions(@PathVariable("id") int id) {
 		return studentQuestionsService.get(id);
 	}
 
-	@RequestMapping("/studentQuestions/all")
+	@GetMapping("/studentQuestions/all")
 	public List<StudentQuestions> getAllStudentQuestions() {
 		return studentQuestionsService.getAll();
 	}
@@ -49,12 +49,12 @@ public class StudentQuestionsController {
 		 return studentQuestionsService.update(studentQuestions);
 	}
 	
-	@RequestMapping("/studentQuestions/classname/{classname}")
+	@GetMapping("/studentQuestions/classname/{classname}")
 	public List<StudentQuestions> getStudentQuestionsForCourse(@PathVariable("classname") String className) {
 		return studentQuestionsService.getForCourseId(className);
 	}
 	
-	@RequestMapping("/studentQuestions/classname/name")
+	@GetMapping("/studentQuestions/classname/name")
 	public List<String> getStudentQuestionsForCourse() {
 		return studentQuestionsService.getDistinctListOfCourse();
 	}

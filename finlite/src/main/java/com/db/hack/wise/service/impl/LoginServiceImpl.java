@@ -31,4 +31,10 @@ public class LoginServiceImpl implements LoginService {
 		}
 		return false;
 	}
+
+	@Override
+	public Boolean getMemberDetailsForUser(String userName, String password) {
+		String pass = memberRepository.getUserDetails(userName);
+		return pass != null ?pass.equals(password)?true:false:false;
+	}
 }

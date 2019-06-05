@@ -4,11 +4,11 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.db.hack.wise.model.TeacherQuestions;
@@ -24,12 +24,12 @@ public class TeacherQuestionsController {
 	@Autowired
 	private TeacherQuestionsService teacherQuestionsService;
 
-	@RequestMapping("/teacherQuestions/{id}")
+	@GetMapping("/teacherQuestions/{id}")
 	public TeacherQuestions getTeacherQuestions(@PathVariable("id") int id) {
 		return teacherQuestionsService.get(id);
 	}
 
-	@RequestMapping("/teacherQuestions/all")
+	@GetMapping("/teacherQuestions/all")
 	public List<TeacherQuestions> getAllTeacherQuestions() {
 		return teacherQuestionsService.getAll();
 	}
@@ -49,12 +49,12 @@ public class TeacherQuestionsController {
 		 return teacherQuestionsService.update(teacherQuestions);
 	}
 	
-	@RequestMapping("/teacherQuestions/classname/{classname}")
+	@GetMapping("/teacherQuestions/classname/{classname}")
 	public List<TeacherQuestions> getTeacherQuestionsForCourse(@PathVariable("classname") String className) {
 		return teacherQuestionsService.getForCourseId(className);
 	}
 	
-	@RequestMapping("/teacherQuestions/classname/name")
+	@GetMapping("/teacherQuestions/classname/name")
 	public List<String> getTeacherQuestionsForCourse() {
 		return teacherQuestionsService.getDistinctListOfCourse();
 	}
