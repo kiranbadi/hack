@@ -1,14 +1,12 @@
 package com.db.hack.wise.controller;
 
-import com.db.hack.wise.dao.MemberDetailsRepository;
-import com.db.hack.wise.model.Member;
-import com.db.hack.wise.model.MemberDetails;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Date;
+import com.db.hack.wise.dao.MemberDetailsRepository;
+import com.db.hack.wise.model.MemberDetails;
 
 /**
  * Created by jones_vinu on 6/4/2019.

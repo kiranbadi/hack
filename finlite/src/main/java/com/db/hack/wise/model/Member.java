@@ -33,9 +33,9 @@ public class Member {
     private String lastName;
 
     @Column(name = "username")
-    private String userName;
+    private String username;
 
-    @Column(name = "Password")
+    @Column(name = "password")
     private String password;
 
     @Column(name = "membertype")
@@ -91,11 +91,11 @@ public class Member {
     }
 
     public String getUserName() {
-        return userName;
+        return username;
     }
 
     public void setUserName(String userName) {
-        this.userName = userName;
+        this.username = userName;
     }
 
     public String getPassword() {
