@@ -31,10 +31,6 @@ public class RegistrationController {
     @PostMapping("/members/create")
     Member registerMember(Member member){
         Member savedMember = memberService.save(member);
-        MemberDetails memberDetails = new MemberDetails();
-        memberDetails.setClassName(member.getClassCode());
-        memberDetails.setMemberId(savedMember.getMemberId());
-        memberDetailsService.save(memberDetails);
         return savedMember;
     }
 
@@ -43,11 +39,10 @@ public class RegistrationController {
        return memberService.getAll();
     }
 
-    @RequestMapping("/members/{id}")
+    @GetMapping("/members/{id}")
     public Member getMember(@PathVariable("id") int id) {
         return memberService.get(id);
     }
-
 
     @DeleteMapping("/members/{id}")
     public void deleteMember(@PathVariable("id") int id) {

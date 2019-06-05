@@ -4,31 +4,39 @@ GO
 ALTER TABLE [dbo].[MemberDetails] DROP CONSTRAINT [fk_memdet_member]
 GO
 
-/****** Object:  Table [dbo].[TeacherQuestions]    Script Date: 6/4/2019 4:37:33 PM ******/
+/****** Object:  Table [dbo].[TeacherQuestions]    Script Date: 6/5/2019 1:50:39 PM ******/
 DROP TABLE [dbo].[TeacherQuestions]
 GO
 
-/****** Object:  Table [dbo].[Survey]    Script Date: 6/4/2019 4:37:33 PM ******/
+/****** Object:  Table [dbo].[Survey]    Script Date: 6/5/2019 1:50:39 PM ******/
 DROP TABLE [dbo].[Survey]
 GO
 
-/****** Object:  Table [dbo].[StudentQuestions]    Script Date: 6/4/2019 4:37:33 PM ******/
+/****** Object:  Table [dbo].[StudentQuestions]    Script Date: 6/5/2019 1:50:39 PM ******/
 DROP TABLE [dbo].[StudentQuestions]
 GO
 
-/****** Object:  Table [dbo].[School]    Script Date: 6/4/2019 4:37:33 PM ******/
+/****** Object:  Table [dbo].[School]    Script Date: 6/5/2019 1:50:39 PM ******/
 DROP TABLE [dbo].[School]
 GO
 
-/****** Object:  Table [dbo].[MemberDetails]    Script Date: 6/4/2019 4:37:33 PM ******/
+/****** Object:  Table [dbo].[Referral]    Script Date: 6/5/2019 1:50:39 PM ******/
+DROP TABLE [dbo].[Referral]
+GO
+
+/****** Object:  Table [dbo].[PracticeTestQuestions]    Script Date: 6/5/2019 1:50:39 PM ******/
+DROP TABLE [dbo].[PracticeTestQuestions]
+GO
+
+/****** Object:  Table [dbo].[MemberDetails]    Script Date: 6/5/2019 1:50:39 PM ******/
 DROP TABLE [dbo].[MemberDetails]
 GO
 
-/****** Object:  Table [dbo].[Member]    Script Date: 6/4/2019 4:37:33 PM ******/
+/****** Object:  Table [dbo].[Member]    Script Date: 6/5/2019 1:50:39 PM ******/
 DROP TABLE [dbo].[Member]
 GO
 
-/****** Object:  Table [dbo].[Member]    Script Date: 6/4/2019 4:37:33 PM ******/
+/****** Object:  Table [dbo].[Member]    Script Date: 6/5/2019 1:50:39 PM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -55,7 +63,8 @@ CREATE TABLE [dbo].[Member](
 	[SchoolName] [varchar](300) NULL,
 	[TeacherName] [varchar](50) NULL,
 	[email] [varchar](100) NULL,
- CONSTRAINT [PK_Member] PRIMARY KEY CLUSTERED 
+	[Course] [varchar](100) NULL,
+ CONSTRAINT [PK_Member] PRIMARY KEY CLUSTERED
 (
 	[Member_ID] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)
@@ -66,7 +75,7 @@ GO
 SET ANSI_PADDING OFF
 GO
 
-/****** Object:  Table [dbo].[MemberDetails]    Script Date: 6/4/2019 4:37:34 PM ******/
+/****** Object:  Table [dbo].[MemberDetails]    Script Date: 6/5/2019 1:50:41 PM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -83,7 +92,7 @@ CREATE TABLE [dbo].[MemberDetails](
 	[Score] [int] NULL,
 	[CertifiedDate] [date] NULL,
 	[ClassStatus] [varchar](50) NULL,
- CONSTRAINT [PK_MemberDetails] PRIMARY KEY CLUSTERED 
+ CONSTRAINT [PK_MemberDetails] PRIMARY KEY CLUSTERED
 (
 	[MemberDetail_ID] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)
@@ -94,7 +103,57 @@ GO
 SET ANSI_PADDING OFF
 GO
 
-/****** Object:  Table [dbo].[School]    Script Date: 6/4/2019 4:37:34 PM ******/
+/****** Object:  Table [dbo].[PracticeTestQuestions]    Script Date: 6/5/2019 1:50:41 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[PracticeTestQuestions](
+	[PracticeQuestion_ID] [int] IDENTITY(1,1) NOT NULL,
+	[correctAns] [int] NULL,
+	[item] [varchar](1000) NULL,
+	[QuestionType] [varchar](7) NOT NULL
+)
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+/****** Object:  Table [dbo].[Referral]    Script Date: 6/5/2019 1:50:41 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[Referral](
+	[Referal_ID] [int] IDENTITY(1,1) NOT NULL,
+	[Member_ID] [int] NOT NULL,
+	[Ref_Name] [varchar](100) NOT NULL,
+	[Ref_email] [varchar](100) NULL,
+	[Ref_address] [varchar](100) NULL,
+	[Ref_phone] [varchar](50) NULL,
+ CONSTRAINT [PK_Referral] PRIMARY KEY CLUSTERED
+(
+	[Referal_ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)
+)
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+/****** Object:  Table [dbo].[School]    Script Date: 6/5/2019 1:50:42 PM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -112,7 +171,7 @@ CREATE TABLE [dbo].[School](
 	[City] [varchar](50) NULL,
 	[State] [varchar](50) NULL,
 	[Zipcode] [varchar](20) NULL,
- CONSTRAINT [PK_School] PRIMARY KEY CLUSTERED 
+ CONSTRAINT [PK_School] PRIMARY KEY CLUSTERED
 (
 	[School_ID] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)
@@ -123,7 +182,7 @@ GO
 SET ANSI_PADDING OFF
 GO
 
-/****** Object:  Table [dbo].[StudentQuestions]    Script Date: 6/4/2019 4:37:35 PM ******/
+/****** Object:  Table [dbo].[StudentQuestions]    Script Date: 6/5/2019 1:50:42 PM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -140,7 +199,7 @@ CREATE TABLE [dbo].[StudentQuestions](
 	[CorrectAns] [int] NULL,
 	[Item] [varchar](1000) NULL,
 	[ClassName] [varchar](100) NULL,
- CONSTRAINT [PK_StudentSurvey] PRIMARY KEY CLUSTERED 
+ CONSTRAINT [PK_StudentSurvey] PRIMARY KEY CLUSTERED
 (
 	[StudentQuestion_ID] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)
@@ -151,7 +210,7 @@ GO
 SET ANSI_PADDING OFF
 GO
 
-/****** Object:  Table [dbo].[Survey]    Script Date: 6/4/2019 4:37:35 PM ******/
+/****** Object:  Table [dbo].[Survey]    Script Date: 6/5/2019 1:50:43 PM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -181,7 +240,7 @@ CREATE TABLE [dbo].[Survey](
 	[JobTitle] [varchar](100) NULL,
 	[LikeToVolunteer] [varchar](1) NULL,
 	[CFLRegistry] [varchar](1) NULL,
- CONSTRAINT [PK_Survey] PRIMARY KEY CLUSTERED 
+ CONSTRAINT [PK_Survey] PRIMARY KEY CLUSTERED
 (
 	[Survey_ID] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)
@@ -192,7 +251,7 @@ GO
 SET ANSI_PADDING OFF
 GO
 
-/****** Object:  Table [dbo].[TeacherQuestions]    Script Date: 6/4/2019 4:37:37 PM ******/
+/****** Object:  Table [dbo].[TeacherQuestions]    Script Date: 6/5/2019 1:50:44 PM ******/
 SET ANSI_NULLS ON
 GO
 

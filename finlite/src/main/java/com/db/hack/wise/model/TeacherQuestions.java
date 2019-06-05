@@ -30,6 +30,9 @@ public class TeacherQuestions {
     @Column(name="Classname")
     private String className;
 
+    @Column(name="CourseName")
+    private String courseName;
+
     public Long getTeacherQuestionID() {
         return teacherQuestionID;
     }
@@ -76,5 +79,13 @@ public class TeacherQuestions {
 
     public void setClassName(String className) {
         this.className = className;
+    }
+
+    public String getCourseName() {
+        return courseName;
+    }
+
+    public void setCourseName(String courseName) {
+        this.courseName = courseName;
     }
 }

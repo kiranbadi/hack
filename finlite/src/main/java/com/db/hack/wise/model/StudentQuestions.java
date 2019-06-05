@@ -35,6 +35,9 @@ public class StudentQuestions {
     @Column(name = "classname")
     private String className;
 
+	@Column(name = "courseName")
+	private String courseName;
+
 	public Long getStudentQuestionID() {
 		return studentQuestionID;
 	}
@@ -81,6 +84,13 @@ public class StudentQuestions {
 
 	public void setClassName(String className) {
 		this.className = className;
+	}
+
+	public String getCourseName() {return courseName;
+	}
+
+	public void setCourseName(String courseName) {
+		this.courseName = courseName;
 	}
 
 	@Override
