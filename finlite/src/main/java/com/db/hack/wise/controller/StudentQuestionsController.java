@@ -53,5 +53,10 @@ public class StudentQuestionsController {
 	public List<StudentQuestions> getStudentQuestionsForCourse(@PathVariable("classname") String className) {
 		return studentQuestionsService.getForCourseId(className);
 	}
+	
+	@RequestMapping("/studentQuestions/classname/name")
+	public List<String> getStudentQuestionsForCourse() {
+		return studentQuestionsService.getDistinctListOfCourse();
+	}
 
 }

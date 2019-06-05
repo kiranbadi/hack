@@ -17,4 +17,7 @@ public interface StudentQuestionsRepository extends CrudRepository<StudentQuesti
 	@Query("select studentQuestions from StudentQuestions studentQuestions where studentQuestions.className = :courseId")
 	public List<StudentQuestions> getForCourseId(@Param("courseId")String courseId);
 	
+	@Query("select distinct studentQuestions.className from StudentQuestions studentQuestions")
+	public List<String> getDistinctListOfCourse();
+	
 }
