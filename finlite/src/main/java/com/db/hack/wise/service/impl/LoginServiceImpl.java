@@ -23,7 +23,7 @@ public class LoginServiceImpl implements LoginService {
 		if (response.isPresent()) {
 			Member member = response.get();
 			if (member != null) {
-				if (member.getUserName().equalsIgnoreCase(userName) && member.getPassword().equals(password)) {
+				if (member.getUsername().equalsIgnoreCase(userName) && member.getPassword().equals(password)) {
 					return true;
 				}
 			}

@@ -38,7 +38,7 @@ public class FinliteApplicationTests {
 		Member member = new Member();
 		member.setFirstName("J");
 		member.setLastName("Y");
-		member.setUserName("test123");
+		member.setUsername("test123");
 		member.setPassword("password");
 		member.setMemberType("STUDENT");
 		registrationController.registerMember(member);

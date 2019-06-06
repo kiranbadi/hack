@@ -93,13 +93,6 @@ public class Member {
         this.lastName = lastName;
     }
 
-    public String getUserName() {
-        return username;
-    }
-
-    public void setUserName(String userName) {
-        this.username = userName;
-    }
 
     public String getPassword() {
         return password;
