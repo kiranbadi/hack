@@ -51,4 +51,13 @@ public class FinliteApplicationTests {
 
 	}
 
+	@Test
+	public void testAssignment(){
+		MemberDetails memberDetails = new MemberDetails();
+		memberDetails.setMemberId(1L);
+		memberDetails.setClassName("FP Planning");
+		memberDetailsController.createMemberDetails(memberDetails);
+		Assert.assertEquals("FP Planning",memberDetailsController.memberDetails(1L).iterator().next().getClassName());
+	}
+
 }
