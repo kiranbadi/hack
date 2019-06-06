@@ -42,7 +42,12 @@ public class FinliteApplicationTests {
 		member.setPassword("password");
 		member.setMemberType("STUDENT");
 		registrationController.registerMember(member);
-		Assert.assertEquals("Y",registrationController.getUsers().iterator().next().getLastName());
+		Member createMember  = registrationController.getUsers().iterator().next();
+		Assert.assertEquals("Y",createMember.getLastName());
+		Assert.assertEquals("STUDENT",createMember.getMemberType());
+		Assert.assertEquals(1L,createMember.getMemberId().longValue());
+
+
 
 	}
 
