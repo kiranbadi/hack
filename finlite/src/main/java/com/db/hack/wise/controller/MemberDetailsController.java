@@ -28,12 +28,12 @@ public class MemberDetailsController {
         memberDetailsRepository.save(details);
     }
 
-    @GetMapping("members/details/{id}/details")
+    @GetMapping("/members/details/{id}/details")
     public Iterable<MemberDetails> memberDetails(@PathVariable Long id){
         return memberDetailsRepository.findMemberDetailsByMember(id);
     }
 
-    @GetMapping("members/id")
+    @GetMapping("/members/details/{id}")
     public String getMemberCourse(@PathVariable  Long id){
         Optional<Member> member =  memberRepository.findById(id);
         return member.isPresent() ? member.get().getCourse() : "";
