@@ -32,7 +32,7 @@ public class FinliteApplicationTests {
 
 	@Test
 	public void contextLoads() {
-		/*System.out.println("*****");
+		System.out.println("*****");
 		Member member = new Member();
 		member.setFirstName("J");
 		member.setLastName("P");
@@ -40,7 +40,7 @@ public class FinliteApplicationTests {
 		member.setPassword("password");
 		member.setMemberType("STUDENT");
 		//registrationController.registerMember(member);
-		System.out.println(registrationController.registerMember(member));
+		//System.out.println(registrationController.registerMember(member));
 		System.out.println(studentQuestionsController.getDistinctListOfCourse());
 		System.out.println(teacherQuestionsController.getDistinctListOfCourse());
 		MemberDetails memberDetails = new MemberDetails();
@@ -50,7 +50,7 @@ public class FinliteApplicationTests {
 		System.out.println(memberDetailsController.getMemberCourse(1L));
 		System.out.println(memberDetailsController.memberDetails(1L));
 		System.out.println(studentQuestionsController.getClassCourse("Financial Planning"));
-		System.out.println(teacherQuestionsController.getClassCourse("Business Class"));*/
+		System.out.println(teacherQuestionsController.getClassCourse("Business Class"));
 
 
 	}
